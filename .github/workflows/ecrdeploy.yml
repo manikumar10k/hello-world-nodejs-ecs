@@ -42,10 +42,18 @@ jobs:
       - name: Configure ECS CLI
         run: ecs-cli configure --cluster hello-world-cluster --region ${{ secrets.AWS_REGION }} --default-launch-type FARGATE --config-name hello-world
 
+      - name: Create ECS task definition
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          ecs-cli compose --file docker-compose.yml create
+          
       - name: Deploy to ECS
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          ecs-cli compose --file docker-compose.yml --task-definition task-definition.json service up --launch-type FARGATE --create-log-groups
+          ecs-cli compose --file docker-compose.yml service up --create-log-groups
