@@ -39,6 +39,11 @@ jobs:
           sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
           sudo chmod +x /usr/local/bin/ecs-cli
 
+      - name: Navigate to directory containing Dockerfile
+        run: |
+          sudo chmod +x /root/hello-world-nodejs-ecs
+          cd /root/hello-world-nodejs-ecs
+
       - name: Deploy to ECS
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
