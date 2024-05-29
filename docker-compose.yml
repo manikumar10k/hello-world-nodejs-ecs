@@ -1,6 +1,6 @@
 version: "2"
 services:
-  hello-world:
+  hello-world-service:
     image: 905418067656.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
     ports:
       - "3000:3000"
