@@ -29,7 +29,7 @@ jobs:
         id: build-image
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: /root/hello-world-nodejs-ecs/docker-compose.yml
           push: true
           tags: 905418067656.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
           
