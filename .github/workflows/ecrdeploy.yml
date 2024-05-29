@@ -40,7 +40,9 @@ jobs:
           sudo chmod +x /usr/local/bin/ecs-cli
 
       - name: Navigate to directory containing Dockerfile
-        run: cd /root/hello-world-nodejs-ecs
+        run: |
+           sudo chmod +x /root/hello-world-nodejs-ecs
+           cd /root/hello-world-nodejs-ecs
 
       - name: Deploy to ECS
         env:
