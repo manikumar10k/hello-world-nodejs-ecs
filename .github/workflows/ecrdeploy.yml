@@ -41,8 +41,8 @@ jobs:
 
       - name: Navigate to directory containing Dockerfile
         run: |
-          sudo chmod +x /hello-world-nodejs-ecs/Dockerfile
-          cd /hello-world-nodejs-ecs/Dockerfile
+          sudo chmod +x /hello-world-nodejs-ecs
+          cd /hello-world-nodejs-ecs/docker-compose.yml
 
       - name: Deploy to ECS
         env:
@@ -51,4 +51,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
           ecs-cli configure --cluster hello-world-cluster --region $AWS_REGION --default-launch-type FARGATE --config-name hello-world
-          ecs-cli compose --file Dockerfile.yml service up
+          ecs-cli compose --file docker-compose.yml service up
