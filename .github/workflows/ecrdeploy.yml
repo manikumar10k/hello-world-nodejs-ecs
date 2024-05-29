@@ -41,7 +41,7 @@ jobs:
 
       - name: Navigate to directory containing Dockerfile
         run: |
-          sudo chmod +x /root/hello-world-nodejs-ecs
+          sudo chmod +x /hello-world-nodejs-ecs
           cd /hello-world-nodejs-ecs
 
       - name: Deploy to ECS
