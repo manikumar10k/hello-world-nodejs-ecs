@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          dockerfile: /root/hello-world-nodejs-ecs/docker-compose.yml
+          dockerfile: hello-world-nodejs-ecs/docker-compose.yml
           push: true
           tags: 905418067656.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
           
@@ -40,7 +40,7 @@ jobs:
           sudo chmod +x /usr/local/bin/ecs-cli
 
       - name: Navigate to directory containing docker-compose.yml
-        run: cd /root/hello-world-nodejs-ecs/docker-compose.yml
+        run: cd hello-world-nodejs-ecs/docker-compose.yml
 
       - name: Deploy to ECS
         env:
