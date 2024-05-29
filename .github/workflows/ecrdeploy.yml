@@ -42,8 +42,8 @@ jobs:
       - name: Navigate to directory containing docker-compose.yml file
         run: |
           sudo chmod +x /hello-world-nodejs-ecs
-          cd /hello-world-nodejs-ecs/docker-compose.yml
-
+          cd /hello-world-nodejs-ecs
+          
       - name: Deploy to ECS
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
