@@ -48,7 +48,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          ecs-cli compose --file docker-compose.yml create
+          aws ecs register-task-definition --cli-input-json file://task-definition.json
           
       - name: Deploy to ECS
         env:
