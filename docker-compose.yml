@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2"
 task_definition:
   ecs_network_mode: awsvpc
   task_execution_role: ecsTaskExecutionRole
