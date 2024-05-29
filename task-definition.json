@@ -27,6 +27,6 @@
     "FARGATE"
   ],
   "cpu": "512",
-  "memory": "0.5GB",
+  "memory": "1GB",
   "executionRoleArn": "arn:aws:iam::905418067656:role/ecsTaskExecutionRole"
 }
