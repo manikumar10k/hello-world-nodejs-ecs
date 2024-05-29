@@ -43,4 +43,8 @@ jobs:
         run: ecs-cli configure --cluster hello-world-cluster --region ${{ secrets.AWS_REGION }} --default-launch-type FARGATE --config-name hello-world
 
       - name: Deploy to ECS
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: ecs-cli compose --file docker-compose.yml service up
