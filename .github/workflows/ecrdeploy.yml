@@ -46,4 +46,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
           ecs-cli configure --cluster hello-world-cluster --region $AWS_REGION --default-launch-type FARGATE --config-name hello-world
-          ecs-cli compose --file Dockerfile service up
+          ecs-cli compose --file Dockerfile.yml service up
