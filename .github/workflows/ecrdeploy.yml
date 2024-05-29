@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          dockerfile: /root/hello-world-nodejs-ecs
+          file: ./Dockerfile
           push: true
           tags: 905418067656.dkr.ecr.us-west-2.amazonaws.com/hello-world:latest
           
@@ -38,9 +38,6 @@ jobs:
         run: |
           sudo curl -Lo /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
           sudo chmod +x /usr/local/bin/ecs-cli
-
-      - name: Navigate to directory containing docker-compose.yml file
-        run: cd /hello-world-nodejs-ecs/docker-compose.yml file
           
       - name: Deploy to ECS
         env:
@@ -48,5 +45,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
+          cd /home/runner/work/hello-world-nodejs-ecs/hello-world-nodejs-ecs
           ecs-cli configure --cluster hello-world-cluster --region $AWS_REGION --default-launch-type FARGATE --config-name hello-world
           ecs-cli compose --file docker-compose.yml service up
