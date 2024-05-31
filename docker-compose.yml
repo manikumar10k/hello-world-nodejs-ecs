@@ -11,3 +11,5 @@ services:
         awslogs-region: "us-west-2"
         awslogs-stream-prefix: "ecs"
     network_mode: awsvpc
+    deploy:
+      task_definition: /root/hello-world-nodejs-ecs/task-definition.json
